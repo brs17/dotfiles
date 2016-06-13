@@ -48,6 +48,9 @@ inoremap jk <esc>
 "semicolon works as colon illiminating shift press
 nmap ; :
 
+"Search for visually selected text: http://vim.wikia.com/wiki/Search_for_visually_selected_text
+vnoremap // y/<C-R>"<CR>
+
 "set colorscheme
 colorscheme slate
 

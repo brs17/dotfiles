@@ -1,0 +1,33 @@
+[user]
+    name =Benjamin Shpurker
+    email = brs17@vt.edu
+
+[color]
+    ui = auto
+
+[alias]
+    st = status
+    ci = commit
+    br = branch
+    co = checkout
+    df = diff
+    lg = log -p
+    mdr = merge --no-commit --no-ff
+
+[branch]
+    autosetuprebase = always
+
+[apply]
+    whitespace = strip
+
+[diff]
+    color = auto
+    rename = copy
+
+[pager]
+    color = true
+
+[status]
+    color = auto
+[push]
+    default = upstream

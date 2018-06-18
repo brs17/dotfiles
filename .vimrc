@@ -56,3 +56,20 @@ colorscheme slate
 
 "English spell check
 "":setlocal spell spelllang=en_us
+
+"vim-plug - https://github.com/junegunn/vim-plug
+call plug#begin('~/.vim/plugged')
+Plug 'iamcco/markdown-preview.vim' "https://github.com/iamcco/markdown-preview.vim
+Plug 'rust-lang/rust.vim' "https://github.com/rust-lang/rust.vim
+call plug#end()
+
+nmap <silent> <F8> <Plug>MarkdownPreview
+imap <silent> <F8> <Plug>MarkdownPreview
+nmap <silent> <F9> <Plug>StopMarkdownPreview
+imap <silent> <F9> <Plug>StopMarkdownPreview
+"for normal mode
+"for insert mode
+"for normal mode
+"for insert mode
+
+let g:rustfmt_autosave=1    "rust

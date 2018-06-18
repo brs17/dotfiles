@@ -1,5 +1,5 @@
 [user]
-    name =Benjamin Shpurker
+    name =shpurk
     email = brs17@vt.edu
 
 [color]
@@ -31,3 +31,5 @@
     color = auto
 [push]
     default = upstream
+[core]
+	editor = vim

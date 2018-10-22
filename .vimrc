@@ -39,11 +39,12 @@ syntax on
 filetype indent plugin on
 
 "wrap
-set nowrap
+"set nowrap
 set ruler
 
-"instead of escape, type jk
+"instead of escape, type jk (capitalized or not)
 inoremap jk <esc>
+inoremap JK <esc>
 
 "semicolon works as colon illiminating shift press
 nmap ; :

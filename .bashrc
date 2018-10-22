@@ -1,4 +1,5 @@
 # .bashrc
+#TODO: Implement prompt for changes in git repo
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
@@ -18,18 +19,19 @@ then
     source /etc/bash_completion.d/git
 fi
 
-if [ -f ~/.git-prompt.sh ]
-then
-    source ~/.git-prompt.sh
+##################################################################################
+#NEW STUF #2
+#LINK: http://dotshare.it/dots/66/
 
-    export GIT_PS1_SHOWDIRTYSTATE=true
-    export GIT_PS1_SHOWUNTRACKEDFILES=true
-    export GIT_PS1_SHOWSTASHSTATE=true
-    export GIT_PS1_SHOWUPSTREAM="auto"
+function parse_git_branch {
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
 
-    export PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
-    export PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
-fi
+PS1="\[\033[01;32m\]\u@\h \[\033[01;34m\]\w \$(parse_git_branch)\[\033[01;32m\]\[\033[01;34m\]\$\[\033[00m\] "
+
+#END NEW STUFF #2
+#####################################################################################
+
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
@@ -84,6 +86,60 @@ fi
 alias ll='ls -acltF'
 alias la='ls -A'
 #alias l='ls -CF'
+
+#START ORIGINAL GIT PROMPT - very large - 
+# shows `username@hostname directory branch (if changes exist)`
+#if [ -f ~/.git-prompt.sh ]
+#then
+#    source ~/.git-prompt.sh
+#
+#    export GIT_PS1_SHOWDIRTYSTATE=true
+#    export GIT_PS1_SHOWUNTRACKEDFILES=true
+#    export GIT_PS1_SHOWSTASHSTATE=true
+#    export GIT_PS1_SHOWUPSTREAM="auto"
+#
+#    #export PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
+#    #export PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
+#fi
+#END ORIGINAL GIT PROMPT
+
+######################################################################
+#NEW STUFF #1
+#LINK: http://dotshare.it/dots/1143/
+
+#Looks like:
+#shpurk@phantom ╺─╸ [dotfiles] [try-bashrc]
+#[18:03] >>
+
+# Check for an interactive session
+#[ -z "$PS1" ] && return
+#
+#_PROMPT() {
+#    _EXIT_STATUS=$?
+#    [ $_EXIT_STATUS != 0 ] && _EXIT_STATUS_STR=" \[\033[38;5;7m\][\[$(tput sgr0)\]\[\033[38;5;9m\]$_EXIT_STATUS\[$(tput sgr0)\]\[\033[38;5;7m\]]\[$(tput sgr0)\]"
+#
+#	#git branch
+#    _BRANCH=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
+#	
+#    #also needed for branch
+#    if [ ! $_BRANCH == "" ]
+#	then
+#		_BRANCH_STR="[\[$(tput sgr0)\]\[\033[38;5;11m\]$_BRANCH\[$(tput sgr0)\]\[\033[38;5;7m\]]"
+#	else
+#		_BRANCH_STR=""
+#	fi
+#
+#    PS1="\[\033[38;5;14m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\[$(tput sgr0)\]\[\033[38;5;6m\]\h\[$(tput sgr0)\] \[$(tput sgr0)\]\[\033[38;5;7m\]╺─╸\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[38;5;7m\][\[$(tput sgr0)\]\[\033[38;5;14m\]\W\[$(tput sgr0)\]\[\033[38;5;7m\]]\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[38;5;7m\]$_BRANCH_STR\[$(tput sgr0)\]\[\033[38;5;15m\] \n\[$(tput sgr0)\]\[\033[38;5;7m\][\[$(tput sgr0)\]\[\033[38;5;11m\]\A\[$(tput sgr0)\]\[\033[38;5;7m\]]\[$(tput sgr0)\]\[\033[38;5;15m\]$_EXIT_STATUS_STR \[$(tput sgr0)\]\[\033[38;5;7m\]>>\[$(tput sgr0)\] "
+#    unset _EXIT_STATUS_STR
+#	unset _EXIT_STATUS
+#	unset _BRANCH_STR
+#	unset _BRANCH
+#}
+#
+#PROMPT_COMMAND=_PROMPT
+
+#END NEW STUFF #1
+#export PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
 
 #used on openshift team at RH
 #function rebaseupstream () {

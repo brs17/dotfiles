@@ -18,6 +18,12 @@ then
     source /etc/bash_completion.d/git
 fi
 
+# Add missing bash completion
+if [ -f /etc/bash_completion ]
+then
+    source /etc/bash_completion
+fi
+
 if [ -f ~/.git-prompt.sh ]
 then
     source ~/.git-prompt.sh

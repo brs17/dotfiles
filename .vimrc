@@ -52,7 +52,9 @@ nmap ; :
 vnoremap // y/<C-R>"<CR>
 
 "set colorscheme
-colorscheme slate
+"colorscheme slate
+colorscheme elflord
+"colorscheme pablo
 
 "English spell check
 "":setlocal spell spelllang=en_us
@@ -73,3 +75,4 @@ imap <silent> <F9> <Plug>StopMarkdownPreview
 "for insert mode
 
 let g:rustfmt_autosave=1    "rust
+

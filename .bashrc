@@ -114,3 +114,12 @@ alias la='ls -A'
 #  git push origin --tags
 #  git checkout ${startbranch}
 #}
+
+#DEBIAN variables
+export DEBFULLNAME="Benjamin"
+export DEBEMAIL="benjamin@system76.com"
+
+#flatpak aliasing
+alias inkscape="flatpak run org.inkscape.Inkscape"
+alias slack="flatpak run com.slack.Slack"
+alias libreoffice="flatpak run org.libreoffice.LibreOffice"

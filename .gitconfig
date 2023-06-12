@@ -1,6 +1,6 @@
 [user]
     name = shpurk
-    email = benpack101@gmail.com
+	email = benjamin@system76.com
 
 [color]
     ui = auto
@@ -33,3 +33,8 @@
     default = upstream
 [core]
 	editor = vim
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process

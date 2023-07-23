@@ -60,10 +60,10 @@ colorscheme elflord
 "":setlocal spell spelllang=en_us
 
 "vim-plug - https://github.com/junegunn/vim-plug
-"call plug#begin('~/.vim/plugged')
-"Plug 'iamcco/markdown-preview.vim' "https://github.com/iamcco/markdown-preview.vim
-"Plug 'rust-lang/rust.vim' "https://github.com/rust-lang/rust.vim
-"call plug#end()
+call plug#begin('~/.vim/plugged')
+Plug 'iamcco/markdown-preview.vim' "https://github.com/iamcco/markdown-preview.vim
+Plug 'rust-lang/rust.vim' "https://github.com/rust-lang/rust.vim
+call plug#end()
 
 nmap <silent> <F8> <Plug>MarkdownPreview
 imap <silent> <F8> <Plug>MarkdownPreview
